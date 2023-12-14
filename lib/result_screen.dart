@@ -20,6 +20,7 @@ class ResultScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('結果発表'),
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

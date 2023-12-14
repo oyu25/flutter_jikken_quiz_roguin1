@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'quiz_page.dart';
-import 'dictinary_page.dart';
-import 'package:flutter/material.dart';
+import 'quiz_page.dart'; // quiz_page.dart ファイルをインポート
 
 void main() {
-  runApp(QuizApp());
+  runApp(MyApp());
 }
 
-
-
-class QuizApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'クイズ&単語帳',
+      title: 'ログイン画面',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -23,17 +19,12 @@ class QuizApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('最初の画面'),
+        title: Text('クイズ&単語帳'),
       ),
       body: Center(
         child: Column(
@@ -44,33 +35,17 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => QuizPage()),
+                  // QuizPage に遷移
                 );
               },
-              child: SizedBox(
-                height: 20,
-                width: 50,
-                child: Text(
-                  'クイズ',
-                  textAlign: TextAlign.center,
-                ),
-              ),
+              child: Text('クイズへ'),
             ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => jishoPage()),
-                );
+                // ここに辞書ページへの遷移を追加する
               },
-              child: SizedBox(
-                height: 20,
-                width: 50,
-                child: Text(
-                  '辞書',
-                  textAlign: TextAlign.center,
-                ),
-              ),
+              child: Text('辞書へ'),
             ),
           ],
         ),
