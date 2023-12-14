@@ -27,7 +27,7 @@ class ResultScreen extends StatelessWidget {
           children: [
             Text(
               '結果',
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)
             ),
             SizedBox(height: 10.0),
             Expanded(
@@ -54,7 +54,7 @@ class ResultScreen extends StatelessWidget {
                         : Text(
                       '不正解',
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.red
                       ),
                     ),
                     onTap: () {
