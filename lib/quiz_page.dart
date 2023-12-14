@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roguin_flutter/result_screen.dart';
+import 'result_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -55,6 +55,9 @@ class _QuizPageState extends State<QuizPage> {
     String userSymbol = userAnswer ? '〇' : '☓';
     String correctAnswerSymbol = questions[currentQuestionIndex].answer ? '〇' : '☓';
 
+    // 新しい選択肢情報
+    bool? userChoice = userAnswer;
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -78,7 +81,7 @@ class _QuizPageState extends State<QuizPage> {
                       currentQuestionIndex++;
                     } else {
                       // Quiz is finished, show the score
-                      showResultDialog();
+                      showResultDialog(userChoice);
                     }
                   });
                 },
@@ -97,7 +100,7 @@ class _QuizPageState extends State<QuizPage> {
     }
   }
 
-  void showResultDialog() {
+  void showResultDialog(bool? userChoice) {
     // ResultScreen に遷移
     Navigator.push(
       context,
@@ -106,6 +109,9 @@ class _QuizPageState extends State<QuizPage> {
           questions: questions,
           userAnswers: List.generate(questions.length, (index) {
             return index < correctAnswers;
+          }),
+          userChoices: List.generate(questions.length, (index) {
+            return index == currentQuestionIndex ? userChoice : null;
           }),
           retryQuiz: () {
             // もう一回ボタンが押されたときの処理
@@ -125,7 +131,6 @@ class _QuizPageState extends State<QuizPage> {
       ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
