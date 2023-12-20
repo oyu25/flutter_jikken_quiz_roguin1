@@ -75,12 +75,10 @@ class _QuizPageState extends State<QuizPage> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pop();
-                  // Move to the next question or show the result
                   setState(() {
                     if (currentQuestionIndex < questions.length - 1) {
                       currentQuestionIndex++;
                     } else {
-                      // Quiz is finished, show the score
                       showResultDialog(userChoice);
                     }
                   });

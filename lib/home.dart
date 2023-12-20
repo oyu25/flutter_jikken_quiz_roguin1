@@ -41,12 +41,12 @@ class HomePage extends StatelessWidget {
               child: Text('クイズへ'),
             ),
             SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                // ここに辞書ページへの遷移を追加する
-              },
-              child: Text('辞書へ'),
-            ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // ここに辞書ページへの遷移を追加する
+            //   },
+            //   child: Text('辞書へ'),
+            // ),
           ],
         ),
       ),
